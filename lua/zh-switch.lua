@@ -19,14 +19,14 @@
 --
 --#endregion
 
-local M={}
+--local M={}
 local ZH_on = 2
 local EN_on = 1
 
 --M.Get_fcitx_status={}
 --M.Leave_insert={}
 --M.Enter_insert={}
-M.Leave_enter_cmd={}
+--M.Leave_enter_cmd={}
 
 local sw_to_CH="fcitx5-remote -o"
 local sw_to_EN="fcitx5-remote -c"
@@ -61,11 +61,17 @@ function Enter_insert()
   end
 end
 
-function M.Leave_enter_cmd()
+local function Leave_enter_cmd()
   vim.api.nvim_command('augroup Leave_enter_input')
   vim.api.nvim_command('autocmd InsertLeave * lua Leave_insert()')
   vim.api.nvim_command('autocmd InsertEnter * lua Enter_insert()')
   vim.api.nvim_command('augroup end')
 end
+local M = {
+  fcitx_status = Get_fcitx_status,
+  leave_input = Leave_insert,
+  enter_input = Enter_insert,
+  Leave_enter_cmd = Leave_enter_cmd
+}
 
 return M
