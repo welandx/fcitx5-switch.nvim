@@ -1,7 +1,7 @@
 #+TITLE: ZH input Switch
 
 #+begin_quote
-使用 vim 写作中文时的一大痛点就是频繁的输入法切换, emacs 中有比较成熟的方案, pyim 还可以将中文分词与 vim 结合
+使用 vim 输入中文时的一大痛点就是频繁的输入法切换, emacs 中有比较成熟的方案, pyim 还可以将中文分词与 vim 结合
 
 vim 中也有许多解决方案, 这个插件只是提供一种普遍的切换方式, 在一定限度内节省切换输入法的操作
 #+end_quote
@@ -9,6 +9,7 @@ vim 中也有许多解决方案, 这个插件只是提供一种普遍的切换�
 * Install
 =requirements= :
 - neovim > 0.5.0
+  - [[https://github.com/wbthomason/packer.nvim.git][Packer]]
 - fcitx5 (require fcitx5-remote)
 
 ** Packer
@@ -23,6 +24,7 @@ vim 中也有许多解决方案, 这个插件只是提供一种普遍的切换�
     end
   }
 #+end_src
+
 ** Straight
 download
 #+begin_src shell
@@ -33,5 +35,7 @@ add this to =init.lua=
 #+begin_src lua
 require('zhswitch').Leave_enter_cmd()
 #+end_src
+
 * Credits
-it's almost a fork of =vim-awheel-fcitx=
+- it's almost a lua fork of [[https://github.com/xiaolulua/vim-awheel_fcitx][vim-awheel_fcitx]]
+- [[https://github.com/ayamir][ayamir]]

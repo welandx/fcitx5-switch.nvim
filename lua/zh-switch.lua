@@ -7,7 +7,7 @@
 -- Maintainer: weland <weland@bupt.edu.cn>
 -- Created: Feb 02, 2022
 -- Modified: Feb 04, 2022
--- Version: 0.0.1
+-- Version: 0.1.1
 -- Keywords: vim input chinese
 -- Plugin-Requires: neovim "0.6.0"
 --                  fcitx5(require fcitx5-remote)
@@ -19,19 +19,11 @@
 --
 --#endregion
 
---local M={}
 local ZH_on = 2
 local EN_on = 1
 
---M.Get_fcitx_status={}
---M.Leave_insert={}
---M.Enter_insert={}
---M.Leave_enter_cmd={}
-
 local sw_to_CH="fcitx5-remote -o"
 local sw_to_EN="fcitx5-remote -c"
-
---os.execute(sw_to_EN)
 
 local stack_insert_status = 1                 --save input status
 
@@ -67,6 +59,7 @@ local function Leave_enter_cmd()
   vim.api.nvim_command('autocmd InsertEnter * lua Enter_insert()')
   vim.api.nvim_command('augroup end')
 end
+
 local M = {
   fcitx_status = Get_fcitx_status,
   leave_input = Leave_insert,
