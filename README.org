@@ -13,9 +13,15 @@ vim 中也有许多解决方案, 这个插件只是提供一种普遍的切换�
 
 ** Packer
 #+begin_src lua
-use {
-  'welandx/zh-switch.nvim'
-}
+  use {
+    'welandx/zh-switch.nvim',
+    opt = true,
+    ft = "markdown",
+	event = "BufRead",
+    config = function ()
+      require('zh-switch').Leave_enter_cmd()
+    end
+  }
 #+end_src
 ** Straight
 download
@@ -25,7 +31,7 @@ git clone https://github.com/welandx/zh-switch.nivm ~/.config/nvim/lua/zhswitch
 
 add this to =init.lua=
 #+begin_src lua
-require('zhswitch.lua.main')
+require('zhswitch').Leave_enter_cmd()
 #+end_src
 * Credits
 it's almost a fork of =vim-awheel-fcitx=

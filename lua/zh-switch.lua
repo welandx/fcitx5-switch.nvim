@@ -35,7 +35,7 @@ local sw_to_EN="fcitx5-remote -c"
 
 local stack_insert_status = 1                 --save input status
 
-function Get_fcitx_status()                   --get input status
+local function Get_fcitx_status()                   --get input status
   local cmd=io.popen("fcitx5-remote")
   local ret=cmd:read("*a")
   local tmp=tonumber(ret)
@@ -43,7 +43,7 @@ function Get_fcitx_status()                   --get input status
   return tmp
 end
 
-function Leave_insert()
+local function Leave_insert()
   local exit_insert_status=Get_fcitx_status()
   stack_insert_status=exit_insert_status
   if exit_insert_status == ZH_on then
@@ -51,7 +51,7 @@ function Leave_insert()
   end
 end
 
-function Enter_insert()
+local function Enter_insert()
   local enter_insert_status=EN_on
   if enter_insert_status~=stack_insert_status then
     if stack_insert_status==ZH_on then
