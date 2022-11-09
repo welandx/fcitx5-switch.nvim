@@ -1,13 +1,13 @@
 --#region
--- zh-switch.lua ---a switch method for chinese user
+-- fcitx5-switch.lua ---a switch method for chinese user
 --
 -- Copyright (C) 2022 weland
 --
 -- Author: weland <https://github.com/welandx>
 -- Maintainer: weland <weland@bupt.edu.cn>
 -- Created: Feb 02, 2022
--- Modified: Feb 04, 2022
--- Version: 0.1.1
+-- Modified:  11 09, 2022
+-- Version: 0.1.2
 -- Keywords: vim input chinese
 -- Plugin-Requires: neovim "0.6.0"
 --                  fcitx5(require fcitx5-remote)
