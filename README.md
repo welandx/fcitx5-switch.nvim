@@ -5,7 +5,7 @@
 > vim 中也有许多解决方案, 这个插件只是提供一种普遍的切换方式, 在一定限度内节省切换输入法的操作
 
 ## Install
-==requirements== :
+**requirements** :
 - neovim > 0.5.0
   - [Packer](https://github.com/wbthomason/packer.nvim.git)
 - fcitx5 (require fcitx5-remote)
@@ -34,5 +34,7 @@ require('fcitx5-switch').Leave_enter_cmd()
 ```
 
 ## Credits
-- it's almost a lua fork of [[https://github.com/xiaolulua/vim-awheel_fcitx][vim-awheel_fcitx]]
-- [[https://github.com/ayamir][ayamir]]
+- it's almost a lua fork of [vim-awheel_fcitx](https://github.com/xiaolulua/vim-awheel_fcitx)
+- [ayamir](https://github.com/ayamir)
+
+

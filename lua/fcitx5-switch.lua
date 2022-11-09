@@ -19,6 +19,7 @@
 --
 --#endregion
 
+local M = {}
 local ZH_on = 2
 local EN_on = 1
 
@@ -35,7 +36,7 @@ local function Get_fcitx_status()                   --get input status
   return tmp
 end
 
-local function Leave_insert()
+function M.Leave_insert()
   local exit_insert_status=Get_fcitx_status()
   stack_insert_status=exit_insert_status
   if exit_insert_status == ZH_on then
@@ -43,7 +44,7 @@ local function Leave_insert()
   end
 end
 
-local function Enter_insert()
+function M.Enter_insert()
   local enter_insert_status=EN_on
   if enter_insert_status~=stack_insert_status then
     if stack_insert_status==ZH_on then
@@ -53,18 +54,12 @@ local function Enter_insert()
   end
 end
 
-local function Leave_enter_cmd()
+function M.Leave_enter_cmd()
   vim.api.nvim_command('augroup Leave_enter_input')
-  vim.api.nvim_command('autocmd InsertLeave * lua Leave_insert()')
-  vim.api.nvim_command('autocmd InsertEnter * lua Enter_insert()')
+  vim.api.nvim_command("autocmd InsertLeave * lua require('fcitx5-switch').Leave_insert()")
+  vim.api.nvim_command("autocmd InsertEnter * lua require('fcitx5-switch').Enter_insert()")
   vim.api.nvim_command('augroup end')
 end
 
-local M = {
-  fcitx_status = Get_fcitx_status,
-  leave_input = Leave_insert,
-  enter_input = Enter_insert,
-  Leave_enter_cmd = Leave_enter_cmd
-}
 
 return M
